@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_response
 
 
     def index
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
     def update
         post_to_update = find_post
-        post_to_update = Post.update!(post_params)
+        post_to_update.update!(post_params)
         render json: post_to_update, status: :ok
     end
 
