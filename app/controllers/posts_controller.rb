@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  # added rescue_from
 
     def index
         
@@ -28,5 +31,13 @@ class PostsController < ApplicationController
 
     def post_params
         params.permit(:text_content, :image, :profile_id)
+    end
+
+    def unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors }, status: :unprocessable_entity
+    end
+
+    def not_found_response
+        
     end
 end
