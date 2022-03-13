@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+import { addPost } from '../profile/profileSlice'
 
 export default function NewPostForm() {
     
-    
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         text_content: "",
         image: ""
@@ -17,7 +19,8 @@ export default function NewPostForm() {
 
     const submitHandler = event => {
         event.preventDefault()
-        console.log(formData);
+        dispatch(addPost(formData))
+      
         setFormData({
             text_content: "",
             image: ""

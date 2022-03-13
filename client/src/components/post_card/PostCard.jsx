@@ -1,15 +1,23 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deletePost } from '../profile/profileSlice'
 
-const PostCard = () => {
+const PostCard = ({text_content, image, id}) => {
+
+  const dispatch = useDispatch()
+
   return (
     <div>
-        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"} alt="post" />
+        <img src={image} alt="post" />
         <div>
             <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
+            <p>{text_content}</p>
         </div>
+        <button onClick={() => dispatch(deletePost(id))}>x</button>
     </div>
   )
 }
+
+
 
 export default PostCard
