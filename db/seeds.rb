@@ -27,6 +27,12 @@ profile1 = Profile.create(
     phone_num: "555-555-5555",
     age: 22
 )
+# t.text "text_content"
+# t.string "image"
+# t.integer "profile_id"
+
+# post1 = 
+# post2 = 
 
 profile2 = Profile.create(
     user_id: user2.id,
