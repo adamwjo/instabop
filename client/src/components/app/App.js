@@ -6,7 +6,7 @@ import Profile from '../profile/Profile';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <h1>App</h1>
       <Profile />
     </div>

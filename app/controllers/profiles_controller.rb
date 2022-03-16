@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     
     def show
         profile = find_profile
-        render json: profile, serializer: ProfilewithuserSerializer, status: :ok
+        render json: profile, status: :ok
     end
 
     private

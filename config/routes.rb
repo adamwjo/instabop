@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :profiles, only: [:index, :show]
 
+  get '/me', to: "auth#profile"
+
 end

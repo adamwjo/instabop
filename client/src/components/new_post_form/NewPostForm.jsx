@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import './newpostform.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { addPost } from '../profile/profileSlice'
 
@@ -29,8 +30,9 @@ export default function NewPostForm() {
 
     return (
         <>
-            <h2>New Post Form</h2>
-            <form onSubmit={submitHandler}>
+            
+            <form className="newpostform" onSubmit={submitHandler}>
+                <h2>New Post Form</h2>
                 <label htmlFor="image">Post an image:</label><br/>
                 <input onChange={formHandler} type="text" id="image" name="image" value={formData.image}/><br/>
                 <label htmlFor="lname">Write your post here:</label><br/>
