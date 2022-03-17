@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { fetchProfile } from './profileSlice'
 
 //components
 import NewPostForm from '../new_post_form/NewPostForm'
@@ -8,15 +9,22 @@ import PostCard from '../post_card/PostCard'
 
 export default function Profile() {
 
-    const posts = useSelector((state) => state.profile.posts)
+    const currentUser = useSelector(({profile}) => profile.currentUser)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+
+        dispatch(fetchProfile())
+        
+    }, [])
    
 
-    console.log(posts);
+ 
     return (
         <>
             <div>Profile</div>
             <NewPostForm />
-            {posts.map(post => <PostCard key={post.id} {...post} />)}
+            {currentUser.posts.map(post => <PostCard key={post.id} {...post} />)}
         </> 
         
     )

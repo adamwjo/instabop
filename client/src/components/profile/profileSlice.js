@@ -2,19 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     status: "idle",
-    loaded: false,
-    posts: [
-        {
-            id: 1432552,
-            text_content: "excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-            image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-        },
-        {
-            id: 84762123,
-            text_content: "excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-            image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/222.png"
-        },
-    ]
+    currentUser: {}
   }
 
 
@@ -22,12 +10,23 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
+        profileLoading: (state, action) => {
+            if(state.status === "idle"){
+                state.status = 'pending'
+            }
+        },
+        profileLoaded: (state, action) => {
+            if (state.status === 'pending') {
+                state.status = 'idle'
+                state.currentUser = action.payload
+              }
+        },
         addPost: (state, action) => {
-            state.posts.push(action.payload)
+            state.currentUser.posts.push(action.payload)
         },
         deletePost: (state, action) => {
             const index = state.posts.findIndex(p => p.id === action.payload)
-            state.posts.splice(index, 1)
+            state.currentUser.posts.splice(index, 1)
         }
     }
    
@@ -35,5 +34,12 @@ export const profileSlice = createSlice({
 
 
 
-export const { addPost, deletePost } = profileSlice.actions
+export const { profileLoading, profileLoaded, addPost, deletePost } = profileSlice.actions
+
+export const fetchProfile = () => async (dispatch) => {
+    dispatch(profileLoading())
+    const response = await fetch("http://localhost:3000/me")
+    const data = await response.json()
+    dispatch(profileLoaded(data))
+  }
 export default profileSlice.reducer

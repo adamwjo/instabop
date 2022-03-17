@@ -11,5 +11,8 @@ export const store = configureStore({
 
 
 //   function reducer(prevState, action){
+  // if (action.type === "LIKE"){
+ //   return "state that looks like what we want for a like"
+//  }
 //       //what is the action?
 //   }

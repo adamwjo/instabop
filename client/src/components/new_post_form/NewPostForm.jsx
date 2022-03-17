@@ -6,6 +6,7 @@ import { addPost } from '../profile/profileSlice'
 export default function NewPostForm() {
     
     const dispatch = useDispatch()
+    
     const [formData, setFormData] = useState({
         text_content: "",
         image: ""
