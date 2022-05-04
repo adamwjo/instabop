@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className="hello">
           Hello World
         </h1>
       </main>
