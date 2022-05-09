@@ -32,3 +32,46 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Getting started with Prisma
+
+The prisma file should be ready to go. first we type the following command in the terminal 
+```bash
+npx prisma init
+```
+
+To create models and there relationships, Navigate over to the schema.prisma file - and this is where you write up your models. 
+
+After you're done creating a model, we need to push that model up to Heroku via the following command
+
+```bash
+npx prisma db push
+```
+
+This is known as a data base push. It's similar to git push and git commit. db push means your pushing it up, but you're not ready to commit it yet to the data base. 
+
+once we push up, we'll get confirmation that Prisma is insyc with your databaset that you have deployed somehwere. So when we see "Generated Prisma Client" in the terminal, this is basically Prisma notifying the database regarding schema changes. 
+
+Now that we have that, we will now run a migration using the following command. 
+
+```bash
+npx prisma migrate dev
+```
+
+here, we are using Dev is because we aren't ready to go to production yet. This will be a different data base.
+
+once we migrate, a migration folder is created with the SQL file with all the SQL code done for us.
+
+Once that is done, type the following in your terminal
+```bash
+npx prisma studio
+```
+This will run your server where you can then look at the modules and their key value pairs. 
+
+## seeding data with Prisma
+
+first we navigate into your seed.ts file. Then we write up how we want to seed our data. Currently, I am still trying to figure out how this works exactly, but I was able to write up a seed for a user. But once seed is created, we run the following command in the terminal
+
+```bash
+npx prisma db seed
+```
