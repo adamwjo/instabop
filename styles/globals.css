@@ -1,0 +1,45 @@
+/* CSS FOR THE APP */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+.button-primary {
+  position: absolute;
+  width: 160px;
+  height: 47px;
+  background-color: #6c4eb4;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.button-primary:hover {
+  position: absolute;
+  width: 160px;
+  height: 47px;
+  background-color: #5065ce;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: 0.9s;
+}
+
+.button-primary:active {
+  position: absolute;
+  width: 160px;
+  height: 47px;
+  background-color: #a9b5d9;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}

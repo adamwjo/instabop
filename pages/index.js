@@ -1,14 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/index.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className="hello">
+    <div>
+      <main>
+        <h1 className={styles.main}>
           Hello World
         </h1>
+        
+        <button className="button-primary">
+          UGGO
+        </button>
       </main>
 
      
