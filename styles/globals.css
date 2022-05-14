@@ -8,6 +8,8 @@ body {
   font-family: Helvetica;
 }
 
+/* BUTTONS */
+
 .button-primary {
   position: absolute;
   width: 160px;
@@ -44,6 +46,8 @@ body {
   border: none;
   border-radius: 10px;
 }
+
+/* HEADINGS */
 
 h1 {
   font-size: 1.8em;
