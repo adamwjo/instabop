@@ -1,35 +1,34 @@
-import React from 'react'
-class LoginForm extends React.Component {
-  state = {
-    email: '',
-    password: ''
+import React, { useState } from 'react'
+
+ const LoginForm = () => {
+
+  const [loginData, setLoginData ] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleChange = e => {
+    setLoginData({[e.target.name]: e.target.value});
   }
 
-<<<<<<< HEAD
-export default function LoginForm() {
-  return (
-    <div className="form">LoginForm</div>
-  )
-=======
-  handleChange = e => {
-    this.setState({[e.target.name]: e.target.value});
-  }
-
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state)
+    console.log(loginData)
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <div><input type="email" name="email" placehoder="email" onChange={this.handleChange}/></div>
-        <div><input type="password" name="password" placeholder="password" onChange={this.handleChange}/></div>
-        <button type="submit">Login</button>
-      </form>
-    )
-  }
->>>>>>> 4458dc36d4b24589ef4088b6f99e6010a4856487
+  return (
+    <form onSubmit={handleSubmit}>
+      <div><input type="email" name="email" placehoder="email" onChange={handleChange}/></div>
+      <div><input type="password" name="password" placeholder="password" onChange={handleChange}/></div>
+      <button type="submit">Login</button>
+    </form>
+  )
 }
 
 export default LoginForm
+
+      
+      
+    
+      
+    
